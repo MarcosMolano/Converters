@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Converters"
+             xmlns:converters="clr-namespace:Converters.Converted"
+             x:Class="Converters.MainPage">
+    <ContentPage.Resources>
+        <converters:Descuento x:Key="converidordescuento"/>
+    </ContentPage.Resources>
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="EJEMPLO CONVERTERS" 
+           HorizontalOptions="Center" />
+        <Label Text="Precio producto" HorizontalOptions="FillAndExpand"/>
+        <Entry x:Name="precio"/>
+        <Label Text="Descuento de un 50%:" HorizontalOptions="FillAndExpand"/>
+        <Label BindingContext="{x:Reference precio}"
+                   Text="{Binding Text, Converter={StaticResource converidordescuento}, StringFormat='El precio con el descuento es de {0}'}"/>
+    </StackLayout>
+
+</ContentPage>
